@@ -26,20 +26,15 @@ export class CheckoutComponent implements OnInit {
   username !: string;
 
   orderForm :any ={
-    firstname: null,
-    lastname : null,
+    name: null,
+    phoneNumber : null,
+    email : null,
     country : null,
-    addrest : null,
-    town : null,
-    state : null,
-    postCode: null,
-    email: null,
-    phone: null,
-    note: null
+    city : null,
   }
 
   constructor(public cartService: CartService,private orderService:OrderService,private storageService: StorageService){
-    
+
   }
   ngOnInit(): void {
     this.username = this.storageService.getUser().username;

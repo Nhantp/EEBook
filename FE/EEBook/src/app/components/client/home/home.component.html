@@ -4,13 +4,9 @@
 <section>
     <div class="container">
         <div class="row justify-content-end">
-            <div class="col-lg-9">
-                <div class="hero__item set-bg right" [ngStyle]="{backgroundImage:'url(assets/image/banner-tet.png'}">
+            <div class="" style="margin-right: -440px">
+                <div class="hero__item set-bg right" [ngStyle]="{backgroundImage:'url(assets/image/banner-tet.png'}" style="margin-left: 300px">
                     <div class="hero__text">
-<!--                        <span>FRUIT FRESH</span>-->
-<!--                        <h2>Vegetable <br />100% Organic</h2>-->
-<!--                        <p>Free Pickup and Delivery Available</p>-->
-<!--                        <a href="javascript:void(0)" class="primary-btn">SHOP NOW</a>-->
                     </div>
                 </div>
             </div>
@@ -21,104 +17,798 @@
 
 <!-- Categories Section Begin -->
 
-<!--<section class="categories">-->
+<section class="categories" style="margin-left: 430px; margin-top: 80px">
+  <div class="container">
+    <div class="row">
+      <p-carousel [value]="category_items" [numScroll]="1" [numVisible]="4" [circular]="true" [showIndicators]="false" [autoplayInterval]="4000">
+        <ng-template let-item pTemplate="item" >
+          <div class="col" style="text-align: center; display: flex; flex-direction: column; justify-content: center;">
+            <div class="categories__item set-bg" [ngStyle]="{'background-image': 'url('+ item.src +')'}" style="width: 60px; height: 60px; margin-left: 100px">
+            </div>
+            <p style="margin-left: -10px; color: black">{{item.title}}</p>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </div>
+</section>
+
+
+<!-- Categories Section End-->
+
+<!-- Lastest Section Begin -->
+<!--<section class="featured spad">-->
 <!--    <div class="container">-->
 <!--        <div class="row">-->
-<!--            <p-carousel [value]="category_items" [numScroll]="1" [numVisible]="4" [circular]="true" [showIndicators]="false" [autoplayInterval]="4000">-->
-<!--                <ng-template let-item pTemplate="item" >-->
-<!--                    <div class="col">-->
-<!--                        <div class="categories__item set-bg" [ngStyle]="{'background-image': 'url('+ item.src +')'}">-->
-<!--                            <h5><a href="javascript:void(0)">{{item.title}}</a></h5>-->
-<!--                        </div>-->
+<!--            <div class="col-lg-12">-->
+<!--                <div class="section-title">-->
+<!--                    <h2>Sản Phẩm mới</h2>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="row featured__filter">-->
+<!--            <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of listProductNewest">-->
+<!--                <div class="featured__item">-->
+<!--                    <div class="featured__item__pic set-bg" [ngStyle]="{'background-image': 'url(data:image/jpeg;base64,'+ product.images[0].data+')'}">-->
+<!--                        <ul class="featured__item__pic__hover">-->
+<!--                            <li><a href="javascript:void(0)" (click)="addToWishList(product)"><fa-icon [icon]="heart"></fa-icon></a></li>-->
+<!--                            <li><a href="javascript:void(0)" routerLink="/product/{{product.id}}"><fa-icon [icon]="retweet"></fa-icon></a></li>-->
+<!--                            <li><a href="javascript:void(0)" (click)="addToCart(product)"><fa-icon [icon]="bag"></fa-icon></a></li>-->
+
+<!--                        </ul>-->
 <!--                    </div>-->
-<!--                </ng-template>-->
-<!--            </p-carousel>-->
+<!--                    <div class="featured__item__text">-->
+<!--                        <h6><a href="javascript:void(0)">{{product.name}}</a></h6>-->
+<!--                        <h5>{{product.price | currency}}</h5>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
 <!--</section>-->
-<!-- Categories Section End -->
+<!-- Lastest Section End-->
 
-<!-- Lastest Section Begin -->
-<section class="featured spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <h2>Sản Phẩm mới</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row featured__filter">
-            <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of listProductNewest">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" [ngStyle]="{'background-image': 'url(data:image/jpeg;base64,'+ product.images[0].data+')'}">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="javascript:void(0)" (click)="addToWishList(product)"><fa-icon [icon]="heart"></fa-icon></a></li>
-                            <li><a href="javascript:void(0)" routerLink="/product/{{product.id}}"><fa-icon [icon]="retweet"></fa-icon></a></li>
-                            <li><a href="javascript:void(0)" (click)="addToCart(product)"><fa-icon [icon]="bag"></fa-icon></a></li>
-
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="javascript:void(0)">{{product.name}}</a></h6>
-                        <h5>{{product.price | currency}}</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Lastest Section End -->
-
-<!-- Banner Begin -->
-<!--<div class="banner">-->
+<!-- Featured Product Section Begin -->
+<!--<section class="featured spad">-->
 <!--    <div class="container">-->
 <!--        <div class="row">-->
-<!--            <div class="col-lg-6 col-md-6 col-sm-6">-->
-<!--                <div class="banner__pic">-->
-<!--                    <img src="assets/image/banner-1.jpg" alt="">-->
+<!--            <div class="col-lg-12">-->
+<!--                <div class="section-title">-->
+<!--                    <h2>Sản phẩm nổi bật</h2>-->
 <!--                </div>-->
 <!--            </div>-->
-<!--            <div class="col-lg-6 col-md-6 col-sm-6">-->
-<!--                <div class="banner__pic">-->
-<!--                    <img src="assets/image/banner-2.jpg" alt="">-->
+<!--        </div>-->
+<!--        <div class="row featured__filter">-->
+<!--            <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of listProductPrice">-->
+<!--                <div class="featured__item">-->
+<!--                    <div class="featured__item__pic set-bg" [ngStyle]="{'background-image': 'url(data:image/jpeg;base64,'+ product.images[0].data+')'}">-->
+<!--                        <ul class="featured__item__pic__hover">-->
+<!--                            <li><a href="javascript:void(0)" (click)="addToWishList(product)"><fa-icon [icon]="heart"></fa-icon></a></li>-->
+<!--                            <li><a href="javascript:void(0)" routerLink="/product/{{product.id}}"><fa-icon [icon]="retweet"></fa-icon></a></li>-->
+<!--                            <li><a href="javascript:void(0)" (click)="addToCart(product)"><fa-icon [icon]="bag"></fa-icon></a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <div class="featured__item__text">-->
+<!--                        <h6><a href="javascript:void(0)">{{product.name}}</a></h6>-->
+<!--                        <h5>{{product.price | currency}}</h5>-->
+<!--                    </div>-->
 <!--                </div>-->
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
-<!--</div>-->
-<!-- Banner End -->
-
-<!-- Featured Product Section Begin -->
-<section class="featured spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <h2>Sản phẩm nổi bật</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row featured__filter">
-            <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of listProductPrice">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" [ngStyle]="{'background-image': 'url(data:image/jpeg;base64,'+ product.images[0].data+')'}">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="javascript:void(0)" (click)="addToWishList(product)"><fa-icon [icon]="heart"></fa-icon></a></li>
-                            <li><a href="javascript:void(0)" routerLink="/product/{{product.id}}"><fa-icon [icon]="retweet"></fa-icon></a></li>
-                            <li><a href="javascript:void(0)" (click)="addToCart(product)"><fa-icon [icon]="bag"></fa-icon></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="javascript:void(0)">{{product.name}}</a></h6>
-                        <h5>{{product.price | currency}}</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!--</section>-->
 <!-- Featured Product Section End -->
+<section>
+<div class="fs_bg">
+  <div class="flashsale-slider">
+    <div class="flashsale_header">
+      <div class="flashsale_header_left">
+        <div class="flashsale_left">
+          <a href="#">
+            <img src="assets/image/fs_banner.png" alt="">
+          </a>
+        </div>
+        <div class="flashsale_big">
+          <span class="flashsale-label">Kết thúc trong</span>
+        </div>
+        <div class="flashsale_right">
+          <span id="hours" class="flashsale-countdown-number">00</span>
+          <span>:</span>
+          <span id="minutes" class="flashsale-countdown-number">00</span>
+          <span>:</span>
+          <span id="seconds" class="flashsale-countdown-number">00</span>
+        </div>
+      </div>
+      <div class="flashsale_header_right">
+        <a href="" class="flashsale_center">
+          <span class="btn_fs">Xem tất cả</span>
+          <div class="fas fa-angle-right"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="swiper fhs-product-slider-content" id="flashsale_slider" style="width: 80%">
+    <div class="swiper-container swiper-container-horizontal" style="position: absolute;top: 60%;left: 50%;transform: translate(-50%, -50%);">
+      <ul class="swiper-wrapper fhs-product-slider-list">
+        <li class="swiper-slide">
+          <div class="item-inner">
+            <div class="ma-box-content" *ngFor="let product of listProductNewest" routerLink="product/{{product.id}}">
+              <div class="product clear" >
+                <div class="product images-container"  style="width: 300px; height: 260px">
+                  <div class="featured__item">
+                    <div style="margin-top: 20px" class="featured__item__pic set-bg" [ngStyle]="{'background-image': 'url(data:image/jpeg;base64,'+ product.images[0].data+')'}">
+                      <ul class="featured__item__pic__hover">
+                        <li><a href="javascript:void(0)" (click)="addToWishList(product)"><fa-icon [icon]="heart"></fa-icon></a></li>
+                        <li><a href="javascript:void(0)" routerLink="/product/{{product.id}}"><fa-icon [icon]="retweet"></fa-icon></a></li>
+                        <li><a href="javascript:void(0)" (click)="addToCart(product)"><fa-icon [icon]="bag"></fa-icon></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h2 class="featured__item__text">
+                  <a style="font-size: 20px">{{product.name}}</a>
+                </h2>
+                <div style="margin: 18px">
+                  <p class="special-price">
+                  <div style="font-size: 20px" class="price-font">157.000 đ <span style="font-size: 20px" class="discount">-25%</span></div>
+                  <span style="font-size: 20px" class="price-old">{{product.price}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+<section class="product-hot">
+  <div class="title">
+    <p>Sản phẩm nổi bật</p>
+  </div>
+  <div class="category_product">
+    <div class="btn-cat">
+      <button class="cat-btn" id="btn-cat-1" onclick="showCategory('cat-1')">Thiếu nhi</button>
+      <button class="cat-btn" id="btn-cat-2" onclick="showCategory('cat-2')">Văn học</button>
+      <button class="cat-btn" id="btn-cat-3" onclick="showCategory('cat-3')">Kinh tế</button>
+      <button class="cat-btn" id="btn-cat-4" onclick="showCategory('cat-4')">Sách ngoại ngữ</button>
+    </div>
+  </div>
+  <div class="tab-container">
+    <div class="full-tab-container">
+      <div class="container-cat-1" style="display: block;justify-content: center;">
+        <div class="container-tab">
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="container-cat-2" style="display: none; justify-content: center;">
+        <div class="container-tab">
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Các sản phẩm danh mục 2 -->
+      </div>
+      <div class="container-cat-3" style="display: none;justify-content: center">
+        <div class="container-tab">
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Các sản phẩm danh mục 3 -->
+      </div>
+      <div class="container-cat-4" style="display: none;justify-content: center">
+        <!-- Các sản phẩm danh mục 4 -->
+        <div class="container-tab">
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="ma-box-content-cat">
+            <div class="product clear">
+              <div class="product images-container">
+                <a href="" class="product-imtage">
+                  <img src="image/p1.jpg" alt="Những Tù Nhân Của Địa Lý" class="lazyloaded">
+                </a>
+              </div>
+            </div>
+            <div>
+              <h2 class="product-name">
+                <a href="">Những Tù Nhân Của Địa Lý</a>
+              </h2>
+              <div style="margin: 15px;">
+                <p class="special-price">
+                <div class="price-font">157.000 đ <span class="discount">-25%</span></div>
+                <span class="price-old">210.000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Blog Section Begin -->
 <!-- <section class="from-blog spad">

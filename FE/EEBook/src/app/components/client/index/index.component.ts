@@ -55,6 +55,12 @@ export class IndexComponent implements OnInit {
 
 
   keyword: any;
+  isDepartmentVisible: boolean = true;
+  listCategoryEnabled1: any[] = [];
+
+  toggleDepartment() {
+    this.isDepartmentVisible = !this.isDepartmentVisible;
+  }
 
   constructor(
     public cartService:CartService,
@@ -115,7 +121,7 @@ export class IndexComponent implements OnInit {
         this.roles = this.storageService.getUser().roles;
         this.showSuccess("Đăng nhập thành công!!");
         this.authModal = false;
-        
+
       },error: err =>{
         console.log(err);
         this.isLoggedIn = false;

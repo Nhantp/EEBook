@@ -60,7 +60,7 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="header__logo">
-<!--                    <a href="javascript:void(0)" routerLink="/" ><img src="assets/image/logo.png" alt=""></a>-->
+                    <a href="javascript:void(0)" routerLink="/" ><img src="assets/image/logo7.png" alt="" style="width: 250px; height: 60px"></a>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -139,7 +139,7 @@
                                         Profile
                                     </a>
                                     <a class="dropdown-item" href="javascript:void(0)" routerLink="my-order">
-                                        <fa-icon [icon]="bag"></fa-icon>
+                                        <fa-icon [icon]="bag" style="width: 100px"></fa-icon>
                                         My Orders
                                     </a>
                                     <div class="dropdown-divider"></div>
@@ -164,19 +164,19 @@
 <section class="hero">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all" (click)="showDepartmentClick()" >
-                        <fa-icon [icon]="bars"></fa-icon>
-                        <span>Danh mục</span>
-                    </div>
-                    <ul>
-<!--                      <ul *ngIf="showDepartment">-->
-                        <li><a href="javascript:void(0)" *ngFor="let category of listCategoryEnabled" routerLink="category/{{category.id}}">{{category.name}}</a></li>
-                    </ul>
-                </div>
+          <div class="col-lg-3">
+            <div class="hero__categories">
+              <div class="hero__categories__all" (click)="toggleDepartment()">
+                <fa-icon [icon]="bars"></fa-icon>
+                <span>Danh mục</span>
+              </div>
+              <ul *ngIf="isDepartmentVisible">
+                <li><a href="javascript:void(0)" *ngFor="let category of listCategoryEnabled" routerLink="category/{{category.id}}">{{category.name}}</a></li>
+              </ul>
             </div>
-            <div class="col-lg-9">
+          </div>
+
+          <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
                         <form action="#">

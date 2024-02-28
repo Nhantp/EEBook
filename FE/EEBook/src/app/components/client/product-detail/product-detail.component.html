@@ -1,20 +1,17 @@
 <p-toast></p-toast>
 
-<section class="breadcrumb-section set-bg" [ngStyle]="{backgroundImage:'url(assets/image/breadcrumb.jpg'}">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="breadcrumb__text">
-                    <h2>Checkout</h2>
-                    <div class="breadcrumb__option">
-                        <a routerLink="/" >Home</a>
-                        <span>Checkout</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!--<section>-->
+<!--  <div class="container">-->
+<!--    <div class="row justify-content-end">-->
+<!--      <div class="col-lg-9">-->
+<!--        <div class="hero__item set-bg right" [ngStyle]="{backgroundImage:'url(assets/image/banner-tet.png'}">-->
+<!--          <div class="hero__text">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
 
 <section class="product-details spad" *ngIf="product != null">
     <div class="container">
@@ -33,6 +30,8 @@
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
                     <h3>{{product.name}}</h3>
+                  <p>Nhà cung cấp: </p>
+                  <p style="margin-top: -30px; margin-bottom: 10px">Nhà xuất bản: </p>
                     <div class="product__details__rating">
                         <fa-icon [icon]="star"></fa-icon>
                         <fa-icon [icon]="star"></fa-icon>
@@ -42,22 +41,25 @@
                         <span>(18 reviews)</span>
                     </div>
                     <div class="product__details__price">{{product.price | currency}}</div>
-                    <p>{{product.description}}</p>
+<!--                    <p>{{product.description}}</p>-->
                     <div class="product__details__quantity">
                         <div class="quantity">
+                          <p style="display: inline-block; padding: 7px">Số lượng</p>
                             <div class="pro-qty">
                                 <span class="dec qtybtn" (click)="subtractQuantity()">-</span>
-                                <input type="text" [(ngModel)]="quantity">
+                              <b><input type="text" [(ngModel)]="quantity"></b>
                                 <span class="inc qtybtn" (click)="plusQuantity()" >+</span>
                             </div>
                         </div>
                     </div>
-                    <a href="javascript:void(0)" class="primary-btn" (click)="addCart(product)">ADD TO CARD</a>
+                  <div style="margin-top: -20px">
+                  <a href="javascript:void(0)" class="primary-btn" (click)="addCart(product)">Thêm vào giỏ hàng</a>
+                   <a routerLink="/cart" (click)="addCart(product)" class="primary-btn">Mua ngay</a>
                     <ul>
-                        <li><b>Availability</b> <span>In Stock</span></li>
-                        <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
-                        <li><b>Weight</b> <span>0.5 kg</span></li>
+                        <li><b>Thời gian giao hàng</b> <span>Giao hàng đến</span></li>
+                        <li><b>Chính sách đổi trả </b> <span>Đổi trả sản phẩm trong 30 ngày</span></li>
                     </ul>
+                </div>
                 </div>
             </div>
             <div class="col-lg-12">
@@ -88,7 +90,7 @@
                         </div>
                     </p-tabPanel>
                     <p-tabPanel header="Description">
-                        
+
 
                         <div class="tab-pane">
                             <div class="product__details__tab__desc">
@@ -126,10 +128,10 @@
                                     sed sit amet dui. Proin eget tortor risus.</p>
                             </div>
                         </div>
-                        
+
                     </p-tabPanel>
                 </p-tabView>
-                
+
             </div>
         </div>
     </div>
