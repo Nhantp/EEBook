@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e9f5902b-a392-47f2-a905-f6a4b3494dba" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/BE/EEBook/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BE/EEBook/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/EEBook/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FE/EEBook/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/EEBook/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FE/EEBook/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/EEBook/src/app/components/client/checkout/checkout.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/EEBook/src/app/components/client/checkout/checkout.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/EEBook/src/app/components/client/checkout/checkout.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/EEBook/src/app/components/client/checkout/checkout.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/EEBook/src/app/components/client/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/FE/EEBook/src/app/components/client/home/home.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/EEBook/src/app/components/client/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/EEBook/src/app/components/client/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/EEBook/src/app/components/client/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/EEBook/src/app/components/client/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/EEBook/src/app/components/client/index/index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/EEBook/src/app/components/client/index/index.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/EEBook/src/app/components/client/index/index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/EEBook/src/app/components/client/index/index.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/EEBook/src/app/components/client/product-detail/product-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/EEBook/src/app/components/client/product-detail/product-detail.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/EEBook/src/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/FE/EEBook/src/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/EEBook/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/EEBook/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FE/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TranVu.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2czBNFcoJV7a7QFsLLxdJuxdnZl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;VuTT&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/University/Project/EEBook&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;688fe1fc1be6feafeae44323e8c0f066&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Spring Boot.EeBookApplication">
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="EeBookApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="EEBook" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.eebook.EeBookApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/FE/EEBook/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e9f5902b-a392-47f2-a905-f6a4b3494dba" name="Changes" comment="" />
+      <created>1709104484774</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709104484774</updated>
+      <workItem from="1709104486163" duration="359000" />
+      <workItem from="1709104859466" duration="3007000" />
+      <workItem from="1709204083070" duration="270000" />
+      <workItem from="1709306853453" duration="1664000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
