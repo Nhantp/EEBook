@@ -1,14 +1,14 @@
-import { Component, OnInit, ChangeDetectorRef, AfterContentChecked } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit, ChangeDetectorRef, AfterContentChecked} from '@angular/core';
+import {Router} from '@angular/router';
 import {faBars, faHeart, faRightFromBracket, faUser} from '@fortawesome/free-solid-svg-icons'
 import {faShoppingBag} from '@fortawesome/free-solid-svg-icons'
 import {faPhone} from '@fortawesome/free-solid-svg-icons'
-import { MessageService } from 'primeng/api';
-import { AuthService } from 'src/app/_service/auth.service';
-import { CartService } from 'src/app/_service/cart.service';
-import { CategoryService } from 'src/app/_service/category.service';
-import { StorageService } from 'src/app/_service/storage.service';
-import { WishlistService } from 'src/app/_service/wishlist.service';
+import {MessageService} from 'primeng/api';
+import {AuthService} from 'src/app/_service/auth.service';
+import {CartService} from 'src/app/_service/cart.service';
+import {CategoryService} from 'src/app/_service/category.service';
+import {StorageService} from 'src/app/_service/storage.service';
+import {WishlistService} from 'src/app/_service/wishlist.service';
 
 
 @Component({
@@ -28,17 +28,17 @@ export class IndexComponent implements OnInit {
   userIcon = faUser;
   logoutIcon = faRightFromBracket;
   bars = faBars;
+  isAdmin: boolean = false;
 
   showDepartment = false;
 
 
-
-  loginForm : any = {
-    username : null,
-    password : null
+  loginForm: any = {
+    username: null,
+    password: null
   }
 
-  registerForm : any = {
+  registerForm: any = {
     username: null,
     email: null,
     password: null
@@ -50,8 +50,8 @@ export class IndexComponent implements OnInit {
   isLoginFailed = false;
   roles: string[] = [];
   errorMessage = '';
-  authModal : boolean = false;
-  listCategoryEnabled : any;
+  authModal: boolean = false;
+  listCategoryEnabled: any;
 
 
   keyword: any;
@@ -63,13 +63,14 @@ export class IndexComponent implements OnInit {
   }
 
   constructor(
-    public cartService:CartService,
+    public cartService: CartService,
     public wishlistService: WishlistService,
     private authService: AuthService,
     private storageService: StorageService,
-    private messageService:MessageService,
+    private messageService: MessageService,
     private categoryService: CategoryService,
-    private router: Router){
+    private router: Router) {
+    this.checkRoute();
 
   }
 
@@ -78,51 +79,59 @@ export class IndexComponent implements OnInit {
     this.isLoggedIn = this.storageService.isLoggedIn();
     this.wishlistService.loadWishList();
     this.cartService.loadCart();
+    const isAdminValue = localStorage.getItem('isAdmin');
+    this.isAdmin = isAdminValue === 'true';
   }
 
-  showDepartmentClick(){
+  showDepartmentClick() {
     this.showDepartment = !this.showDepartment;
   }
 
-  getCategoryEnbled(){
+  getCategoryEnbled() {
     this.categoryService.getListCategoryEnabled().subscribe({
-      next: res =>{
+      next: res => {
         this.listCategoryEnabled = res;
-      },error: err =>{
+      }, error: err => {
         console.log(err);
       }
     })
   }
 
-  removeFromCart(item:any){
+  removeFromCart(item: any) {
     this.cartService.remove(item);
   }
 
-  removeWishList(item: any){
+  removeWishList(item: any) {
     this.wishlistService.remove(item);
   }
 
-  showAuthForm(){
-    if(!this.isLoggedIn){
+  showAuthForm() {
+    if (!this.isLoggedIn) {
       this.authModal = true;
-      this.loginForm = {username: null,password: null};
-      this.registerForm = {username: null,email: null, password: null};
+      this.loginForm = {username: null, password: null};
+      this.registerForm = {username: null, email: null, password: null};
     }
   }
 
-  login():void{
-    const {username,password} = this.loginForm;
-    console.log(this.loginForm);
-    this.authService.login(username,password).subscribe({
-      next: res =>{
+  login(): void {
+    const { username, password } = this.loginForm;
+    this.authService.login(username, password).subscribe({
+      next: res => {
         this.storageService.saveUser(res);
         this.isLoggedIn = true;
         this.isLoginFailed = false;
         this.roles = this.storageService.getUser().roles;
+        if (this.storageService.getUser().roles == 'ROLE_ADMIN') {
+          this.isAdmin = true;
+          localStorage.setItem('isAdmin', 'true');
+        } else {
+          this.isAdmin = false;
+          localStorage.setItem('isAdmin', 'false');
+        }
         this.showSuccess("Đăng nhập thành công!!");
         this.authModal = false;
-
-      },error: err =>{
+      },
+      error: err => {
         console.log(err);
         this.isLoggedIn = false;
         this.isLoginFailed = true;
@@ -131,16 +140,18 @@ export class IndexComponent implements OnInit {
     })
   }
 
-  register():void{
-    const {username,email,password} = this.registerForm;
+
+
+  register(): void {
+    const {username, email, password} = this.registerForm;
     console.log(this.registerForm);
-    this.authService.register(username,email,password).subscribe({
-      next: res =>{
+    this.authService.register(username, email, password).subscribe({
+      next: res => {
         this.isSuccessful = true;
         this.isSignUpFailed = false;
         this.showSuccess("Đăng ký thành công")
         this.authModal = false;
-      },error: err =>{
+      }, error: err => {
         this.showError(err.message);
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
@@ -148,14 +159,17 @@ export class IndexComponent implements OnInit {
     })
   }
 
-  logout():void{
+  logout(): void {
     this.authService.logout().subscribe({
-      next:res =>{
+      next: res => {
         this.storageService.clean();
         this.isLoggedIn = false;
         this.authModal = false;
+        this.isAdmin = false;
+        localStorage.setItem('isAdmin', 'false');
         this.showSuccess("Bạn đã đăng xuất!!");
-      },error: err=>{
+      },
+      error: err => {
         this.showError(err.message);
       }
     })
@@ -165,15 +179,18 @@ export class IndexComponent implements OnInit {
 
 
   showSuccess(text: string) {
-    this.messageService.add({severity:'success', summary: 'Success', detail: text});
+    this.messageService.add({severity: 'success', summary: 'Success', detail: text});
   }
+
   showError(text: string) {
-    this.messageService.add({severity:'error', summary: 'Error', detail: text});
+    this.messageService.add({severity: 'error', summary: 'Error', detail: text});
   }
 
   showWarn(text: string) {
-    this.messageService.add({severity:'warn', summary: 'Warn', detail: text});
+    this.messageService.add({severity: 'warn', summary: 'Warn', detail: text});
   }
 
-
+  checkRoute() {
+    this.isDepartmentVisible = this.router.url === '/';
+  }
 }

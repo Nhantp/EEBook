@@ -20,7 +20,7 @@ import { ShopComponent } from './components/client/shop/shop.component';
 import { UserDetailComponent } from './components/client/user-detail/user-detail.component';
 import { AuthGuardService } from './_service/auth-guard.service';
 import { RoleGuardService } from './_service/role-guard.service';
-
+import {VNPayComponent} from "./components/client/vnpay/vnpay.component";
 
 const routes: Routes = [
   {
@@ -45,7 +45,9 @@ const routes: Routes = [
       {path:'blog/:id',component:BlogDetailComponent},
       {path:'user',component:UserDetailComponent,canActivate: [AuthGuardService]},
       {path:'my-order',component:MyOrderComponent,canActivate: [AuthGuardService]},
-      {path:'search/:keyword',component:SearchComponent}
+      {path:'search/:keyword',component:SearchComponent},
+      {path:'vnpay',component:VNPayComponent},
+      // {path:'vnpay-payment',component:VnpayInvoiceComponent}
     ]
   },
   {path:'login',component:LoginPageComponent}

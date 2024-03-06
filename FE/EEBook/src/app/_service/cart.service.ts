@@ -8,10 +8,12 @@ import { Observable, of, Subject } from 'rxjs';
 export class CartService {
 
   items : any[] =[];
-  
+
   totalPrice =0;
 
   total = 0;
+
+  orderInfo: string | undefined;
 
   constructor() { }
 
@@ -51,7 +53,7 @@ export class CartService {
     this.saveCart();
     this.getTotalPrice();
   }
-  
+
 
   productInCart(item: any):boolean{
     return this.items.findIndex((x:any) => x.id == item.id) > -1;
@@ -77,6 +79,15 @@ export class CartService {
       this.total = this.totalPrice;
     })
     return this.totalPrice;
+  }
+  generateRandomNumberInfo() {
+    const length = 9;
+    let result = 'Thanh toan cho đon hang ';
+    for (let i = 0; i < length; i++) {
+      const randomNumber = Math.floor(Math.random() * 10);
+      result += randomNumber.toString();
+    }
+    this.orderInfo = result;
   }
 
   remove(item: any){

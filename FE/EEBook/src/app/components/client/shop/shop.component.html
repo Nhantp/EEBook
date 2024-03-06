@@ -1,44 +1,28 @@
 
 <p-toast></p-toast>
 
-<section class="breadcrumb-section set-bg" [ngStyle]="{backgroundImage:'url(assets/image/breadcrumb.jpg'}">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="breadcrumb__text">
-                    <h2>Category</h2>
-                    <div class="breadcrumb__option">
-                        <a routerLink="/" >Home</a>
-                        <span>Category</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="product spad">
+<section class="product spad" style="margin-top: -30px">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-5">
                 <div class="sidebar">
                     <div class="sidebar__item">
-                        <h4>Department</h4>
+                        <h4>Danh mục</h4>
                         <ul>
                             <li><a routerLink="/category/{{category.id}}" *ngFor="let category of listCategory">{{category.name}}</a></li>
 
                         </ul>
                     </div>
                     <div class="sidebar__item">
-                        <h4>Price</h4>
+                        <h4>Giá</h4>
                         <p-slider [(ngModel)]="rangeValues" [range]="true" [min]="0" [max]="500" [style]="{'background':'#dd2222'}" (onChange)="getListProductByPriceRange()" ></p-slider>
                         <div class="price-input mt-3">
-                            {{rangeValues[0] | currency}} - {{rangeValues[1] | currency}} 
+                            {{rangeValues[0] | currency}} - {{rangeValues[1] | currency}}
                         </div>
                     </div>
                     <div class="sidebar__item">
                         <div class="latest-product__text">
-                            <h4>Latest Products</h4>
+                            <h4>Sản phẩm mới nhất</h4>
                             <div class="latest-product__slider">
                                 <div class="latest-prdouct__slider__item">
                                     <a href="#" class="latest-product__item" *ngFor="let product of listProductNewest">
@@ -105,7 +89,7 @@
                             </div>
                         </ng-template>
                     </p-dataView>
-                    
+
                 </div>
             </div>
         </div>

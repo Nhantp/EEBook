@@ -12,7 +12,7 @@
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
         <ng-template pTemplate="caption">
             <div class="flex align-items-center justify-content-between">
-                <h5 class="m-0">Manage Products</h5>
+                <h5 class="m-0">Quản lý sản phẩm</h5>
                 <span class="p-input-icon-left">
                     <i class="pi pi-search"></i>
                     <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Tìm kiếm" />`
@@ -39,7 +39,7 @@
                 </td>
                 <td>{{product.name}}</td>
                 <td><img src="{{'data:image/jpg;base64,' +product.images[0].data}}" [alt]="product.name" width="100" class="shadow-4" /></td>
-                <td>{{product.price | currency:'USD'}}</td>
+                <td>{{product.price | number:'1.0-0'}} đ</td>
                 <td>{{product.category.name}}</td>
                 <td>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="openUpdate(product)"></button>
@@ -79,7 +79,7 @@
             </div>
         </div>
 
-        
+
         <div class="formgrid grid">
             <div class="field col">
                 <label for="price">Price</label>
@@ -90,6 +90,18 @@
                 <p-inputNumber id="quantity" [(ngModel)]="productForm.quantity"></p-inputNumber>
             </div>
         </div>
+
+      <div class="formgrid grid">
+        <div class="field col">
+          <label for="Discount">Discount</label>
+          <p-inputNumber id="Discount" [(ngModel)]="productForm.discount"></p-inputNumber>
+        </div>
+
+        <div class="field col">
+          <label for="flash_sale">Flash Sale</label>
+          <p-inputNumber id="flash_sale" [(ngModel)]="productForm.flashSale"></p-inputNumber>
+        </div>
+      </div>
 
         <div class="field">
             <button pButton type="button" class="p-button-success w-auto" (click)="onChooseImage()"> Chọn ảnh</button>

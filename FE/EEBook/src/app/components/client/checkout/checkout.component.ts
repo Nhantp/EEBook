@@ -7,6 +7,8 @@ import { OrderDetail } from 'src/app/_class/order-detail';
 import { CartService } from 'src/app/_service/cart.service';
 import { OrderService } from 'src/app/_service/order.service';
 import { StorageService } from 'src/app/_service/storage.service';
+import {GetDataService} from "../../../_service/get-data.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-checkout',
@@ -24,6 +26,9 @@ export class CheckoutComponent implements OnInit {
   order = new Order();
   listOrderDetail: any[] =[];
   username !: string;
+  totalAmount = 1;
+  orderDetail : OrderDetail = new OrderDetail;
+  orderInfo: string | undefined;
 
   orderForm :any ={
     name: null,
@@ -31,9 +36,16 @@ export class CheckoutComponent implements OnInit {
     email : null,
     country : null,
     city : null,
+    district: null,
+    ward: null,
+    address: null
   }
 
-  constructor(public cartService: CartService,private orderService:OrderService,private storageService: StorageService){
+  constructor(public cartService: CartService,
+              private orderService:OrderService,
+              private storageService: StorageService,
+              private getData: GetDataService,
+              private router: Router){
 
   }
   ngOnInit(): void {
@@ -55,9 +67,16 @@ export class CheckoutComponent implements OnInit {
       orderDetail.subTotal = res.subTotal;
       this.listOrderDetail.push(orderDetail);
     })
+    const vnpayRadio = document.getElementById('VNPay') as HTMLInputElement;
+    if (vnpayRadio.checked) {
+      this.router.navigate(['/vnpay']);
+    } else {
 
-    const {firstname,lastname,country,address,town,state,postCcode,phone,email,note} = this.orderForm;
-    this.orderService.placeOrder(firstname,lastname,country,address,town,state,postCcode,phone,email,note,this.listOrderDetail,this.username).subscribe({
+    }
+
+    this.generateRandomNumberInfo()
+    const {name,phoneNumber,email,country,city,district,ward,address} = this.orderForm;
+    this.orderService.placeOrder(name,phoneNumber,email,country, city,district,ward,address,this.orderInfo,this.listOrderDetail,this.username).subscribe({
       next: res =>{
         this.cartService.clearCart();
       },error: err=>{
@@ -67,5 +86,15 @@ export class CheckoutComponent implements OnInit {
 
   }
 
+
+  generateRandomNumberInfo() {
+    const length = 9;
+    let result = 'Thanh toan cho đon hang ';
+    for (let i = 0; i < length; i++) {
+      const randomNumber = Math.floor(Math.random() * 10);
+      result += randomNumber.toString();
+    }
+    this.orderInfo = result;
+  }
 
 }
