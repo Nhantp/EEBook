@@ -15,6 +15,8 @@ export class CartComponent {
   bars = faBars;
 
   showDepartment = false;
+  selectedItems: any[] = [];
+
 
   constructor(public cartService: CartService){
 
@@ -37,14 +39,28 @@ export class CartComponent {
   plusQuantity(item:any){
     let quantity = Number(item.quantity);
     this.cartService.updateCart(item,quantity+=1);
-  } 
+  }
   subtractQuantity(item: any){
     if(item.quantity > 1){
       let quantity = Number(item.quantity);
       this.cartService.updateCart(item,quantity-=1);
     }
   }
-  
+  selectAll() {
+    this.selectedItems = this.cartService.items.slice();
+  }
+  isSelected(product: any) {
+    return this.selectedItems.indexOf(product) > -1;
+  }
+  toggleSelect(product: any) {
+    const index = this.selectedItems.indexOf(product);
+    if (index > -1) {
+      this.selectedItems.splice(index, 1);
+    } else {
+      this.selectedItems.push(product);
+    }
+  }
+
 
 
 

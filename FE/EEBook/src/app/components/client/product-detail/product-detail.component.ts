@@ -54,7 +54,7 @@ export class ProductDetailComponent implements OnInit {
     })
   }
 
-  
+
 
   getListRelatedProduct(){
     this.productService.getListRelatedProduct(this.product.category.id).subscribe({
@@ -78,7 +78,7 @@ export class ProductDetailComponent implements OnInit {
     this.cartService.addToCart(item,this.quantity);
     this.showSuccess("Add To Cart Successfully!");
   }
-  
+
   addToWishList(item: any){
     if(!this.wishlistService.productInWishList(item)){
       this.wishlistService.addToWishList(item);
@@ -101,7 +101,7 @@ export class ProductDetailComponent implements OnInit {
   showError(text: string) {
     this.messageService.add({severity:'error', summary: 'Error', detail: text});
   }
-  
+
   showWarn(text: string) {
     this.messageService.add({severity:'warn', summary: 'Warn', detail: text});
   }

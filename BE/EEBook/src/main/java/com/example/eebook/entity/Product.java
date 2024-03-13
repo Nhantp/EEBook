@@ -26,6 +26,13 @@ public class Product {
 
     private long price;
 
+    private int discount;
+
+    private int flashSale;
+    private int new1;
+    private int new2;
+    private int new3;
+
     private int quantity;
 
     @ManyToOne

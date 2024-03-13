@@ -7,6 +7,11 @@ import { OrderDetail } from 'src/app/_class/order-detail';
 import { CartService } from 'src/app/_service/cart.service';
 import { OrderService } from 'src/app/_service/order.service';
 import { StorageService } from 'src/app/_service/storage.service';
+import {GetDataService} from "../../../_service/get-data.service";
+import {Router} from "@angular/router";
+import Swiper from "swiper";
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-checkout',
@@ -24,6 +29,9 @@ export class CheckoutComponent implements OnInit {
   order = new Order();
   listOrderDetail: any[] =[];
   username !: string;
+  totalAmount = 1;
+  orderDetail : OrderDetail = new OrderDetail;
+  orderInfo: string | undefined;
 
   orderForm :any ={
     name: null,
@@ -31,9 +39,16 @@ export class CheckoutComponent implements OnInit {
     email : null,
     country : null,
     city : null,
+    district: null,
+    ward: null,
+    address: null
   }
 
-  constructor(public cartService: CartService,private orderService:OrderService,private storageService: StorageService){
+  constructor(public cartService: CartService,
+              private orderService:OrderService,
+              private storageService: StorageService,
+              private messageService: MessageService,
+              private router: Router){
 
   }
   ngOnInit(): void {
@@ -55,9 +70,24 @@ export class CheckoutComponent implements OnInit {
       orderDetail.subTotal = res.subTotal;
       this.listOrderDetail.push(orderDetail);
     })
+    const vnpayRadio = document.getElementById('VNPay') as HTMLInputElement;
+    if (vnpayRadio.checked) {
+      this.router.navigate(['/vnpay']);
+    } else {
+      Swal.fire({
+        icon: 'success',
+        title: 'Thanh toán thành công',
+        confirmButtonText: 'OK',
+        timer: 2000
+      }).then(() => {
+        this.router.navigate(['/']);
+      });
+    }
 
-    const {firstname,lastname,country,address,town,state,postCcode,phone,email,note} = this.orderForm;
-    this.orderService.placeOrder(firstname,lastname,country,address,town,state,postCcode,phone,email,note,this.listOrderDetail,this.username).subscribe({
+
+    this.generateRandomNumberInfo()
+    const {name,phoneNumber,email,country,city,district,ward,address} = this.orderForm;
+    this.orderService.placeOrder(name,phoneNumber,email,country, city,district,ward,address,this.orderInfo,this.listOrderDetail,this.username).subscribe({
       next: res =>{
         this.cartService.clearCart();
       },error: err=>{
@@ -68,4 +98,37 @@ export class CheckoutComponent implements OnInit {
   }
 
 
+  generateRandomNumberInfo() {
+    const length = 9;
+    let result = 'Thanh toan cho đon hang ';
+    for (let i = 0; i < length; i++) {
+      const randomNumber = Math.floor(Math.random() * 10);
+      result += randomNumber.toString();
+    }
+    this.orderInfo = result;
+  }
+  showSuccess(text: string) {
+    this.messageService.add({severity:'success', summary: 'Success', detail: text});
+  }
+  showError(text: string) {
+    this.messageService.add({severity:'error', summary: 'Error', detail: text});
+  }
+
+  showWarn(text: string) {
+    this.messageService.add({severity:'warn', summary: 'Warn', detail: text});
+  }
+  ngAfterViewInit(): void {
+    const swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
 }

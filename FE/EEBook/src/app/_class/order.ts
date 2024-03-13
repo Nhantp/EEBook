@@ -1,15 +1,13 @@
 export class Order {
 
-    firstname !: string;
-    lastname !:string;
-    country !:string;
-    address!:string;
-    town!:string;
-    state!:string;
-    postCode !: number
-    email!:string;
-    phone!:string;
-    note!:string;
-    totalPrice !: number;
+  name !: string;
+  phoneNumber !: string;
+  email !: string;
+  country!: string;
+  city!: string;
+  district!: string;
+  ward !: number
+  address!: string;
+  totalPrice !: number;
 
 }

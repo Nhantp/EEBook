@@ -29,7 +29,11 @@ export class OrderService {
 
   }
 
-  placeOrder(firstname: string,lastname:string,country:string,address: string,town: string,state:string,postCode: string,phone:string,email:string,note:string,orderDetails: OrderDetail[],username: string):Observable<any>{
-    return this.http.post(ORDER_API +'create',{firstname,lastname,country,address,town,state,postCode,phone,email,note,orderDetails,username},httpOptions);
+  placeOrder(name: string, phoneNumber: string, email: string, country: string, city: string, district: string, ward: string, address: string, orderInfo: string | undefined, orderDetails: OrderDetail[], username: string):Observable<any>{
+    return this.http.post(ORDER_API +'create',{name,phoneNumber,email,country,city,district,ward,address,orderInfo,orderDetails,username},httpOptions);
   }
+
+    getLastOrderInfo():Observable<any>{
+      return this.http.get(ORDER_API+'info',httpOptions);
+    }
 }

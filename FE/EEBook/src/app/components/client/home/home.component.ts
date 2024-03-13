@@ -4,6 +4,7 @@ import { MessageService } from 'primeng/api';
 import { CartService } from 'src/app/_service/cart.service';
 import { ProductService } from 'src/app/_service/product.service';
 import { WishlistService } from 'src/app/_service/wishlist.service';
+import Swiper from "swiper";
 
 @Component({
   selector: 'app-home',
@@ -86,7 +87,10 @@ export class HomeComponent implements OnInit {
     }
   ] ;
 
-  constructor(private productSerive:ProductService,private cartService: CartService, private wishlistService: WishlistService,private messageService: MessageService){}
+  constructor(private productSerive:ProductService,
+              private cartService: CartService,
+              private wishlistService: WishlistService,
+              private messageService: MessageService){}
 
   ngOnInit(): void {
     this.getListProduct();
@@ -109,11 +113,18 @@ export class HomeComponent implements OnInit {
         console.log(err);
       }
     })
+    this.productSerive.getListProduct().subscribe({
+      next:res =>{
+        this.listProductPrice =res;
+      },error: err=>{
+        console.log(err);
+      }
+    })
   }
 
   addToCart(item: any){
     this.cartService.getItems();
-    this.showSuccess("Add To Cart Successfully!")
+    this.showSuccess("Thêm vào giỏ hàng thành công")
     this.cartService.addToCart(item,1);
   }
 
@@ -134,5 +145,54 @@ export class HomeComponent implements OnInit {
   showWarn(text: string) {
     this.messageService.add({severity:'warn', summary: 'Warn', detail: text});
   }
+  ngAfterViewInit(): void {
+    const swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
 
+}
+let savedTime: string | null = localStorage.getItem("countdownTimer");
+let countDownDate: Date;
+
+if (savedTime) {
+  countDownDate = new Date(savedTime);
+} else {
+  countDownDate = new Date();
+  countDownDate.setHours(countDownDate.getHours() + 1);
+}
+
+const x = setInterval(() => {
+  const now: number = new Date().getTime();
+  const distance: number = countDownDate.getTime() - now;
+  const hours: number = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes: number = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds: number = Math.floor((distance % (1000 * 60)) / 1000);
+  document.getElementById("hours")!.innerHTML = formatTime(hours);
+  document.getElementById("minutes")!.innerHTML = formatTime(minutes);
+  document.getElementById("seconds")!.innerHTML = formatTime(seconds);
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("hours")!.innerHTML = "00";
+    document.getElementById("minutes")!.innerHTML = "00";
+    document.getElementById("seconds")!.innerHTML = "00";
+  }
+}, 1000);
+
+function formatTime(time: number): string {
+  if (time < 10) {
+    return "0" + time;
+  } else {
+    return time.toString();
+  }
 }

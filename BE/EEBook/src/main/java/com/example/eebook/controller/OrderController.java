@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/order")
@@ -43,4 +45,17 @@ public class OrderController {
 
         return ResponseEntity.ok(new MessageResponse("Order Placed Successfully!"));
     }
+
+    @GetMapping("/info")
+    public ResponseEntity<Map<String, String>> getLastOrderInfo() {
+        String lastOrderInfo = orderService.getLastOrderInfo();
+        if (lastOrderInfo != null) {
+            Map<String, String> response = new HashMap<>();
+            response.put("orderInfo", lastOrderInfo);
+            return ResponseEntity.ok(response);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }

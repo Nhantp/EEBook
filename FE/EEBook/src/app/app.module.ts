@@ -47,6 +47,7 @@ import { UserDetailComponent } from './components/client/user-detail/user-detail
 import { MyOrderComponent } from './components/client/my-order/my-order.component';
 import { SearchComponent } from './components/client/search/search.component';
 import { LoginPageComponent } from './components/client/login-page/login-page.component';
+import {VNPayComponent} from "./components/client/vnpay/vnpay.component";
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import { LoginPageComponent } from './components/client/login-page/login-page.co
     MyOrderComponent,
     SearchComponent,
     LoginPageComponent,
+    VNPayComponent
 
   ],
   imports: [
@@ -100,7 +102,8 @@ import { LoginPageComponent } from './components/client/login-page/login-page.co
     PasswordModule,
     SliderModule,
     DataViewModule,
-    MultiSelectModule
+    MultiSelectModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

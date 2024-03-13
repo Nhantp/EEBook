@@ -19,25 +19,23 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String firstname;
+    private String name;
 
-    private String lastname;
+    private String phoneNumber;
+
+    private String email;
 
     private String country;
 
+    private String city;
+
+    private String district;
+
+    private String ward;
+
     private String address;
 
-    private String town;
-
-    private String state;
-
-    private long postCode;
-
-    private String email;
-    
-    private String phone;
-
-    private String note;
+    private String orderInfo;
 
     private long totalPrice;
 

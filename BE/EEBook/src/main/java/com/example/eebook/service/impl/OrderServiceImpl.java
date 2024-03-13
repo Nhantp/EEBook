@@ -33,16 +33,15 @@ public class OrderServiceImpl implements OrderService {
         // TODO Auto-generated method stub
         Order order = new Order();
         User user = userRepository.findByUsername(request.getUsername()).orElseThrow(() -> new NotFoundException("Not Found User With Username:" + request.getUsername()));
-        order.setFirstname(request.getFirstname());
-        order.setLastname(request.getLastname());
-        order.setCountry(request.getCountry());
-        order.setAddress(request.getAddress());
-        order.setTown(request.getTown());
-        order.setState(request.getState());
-        order.setPostCode(request.getPostCode());
+        order.setName(request.getName());
+        order.setPhoneNumber(request.getPhoneNumber());
         order.setEmail(request.getEmail());
-        order.setPhone(request.getPhone());
-        order.setNote(request.getNote());   
+        order.setCountry(request.getCountry());
+        order.setCity(request.getCity());
+        order.setDistrict(request.getDistrict());
+        order.setWard(request.getWard());
+        order.setAddress(request.getAddress());
+        order.setOrderInfo(request.getOrderInfo());
         orderRepository.save(order);
         long totalPrice = 0;
         for(CreateOrderDetailRequest rq: request.getOrderDetails()){
@@ -73,5 +72,11 @@ public class OrderServiceImpl implements OrderService {
         List<Order> orders = orderRepository.getOrderByUser(user.getId());
         return orders;  
     }
+
+    @Override
+    public String getLastOrderInfo() {
+        return orderRepository.getLastOrderInfo();
+    }
+
 
 }
