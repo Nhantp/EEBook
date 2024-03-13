@@ -103,7 +103,7 @@ import {VNPayComponent} from "./components/client/vnpay/vnpay.component";
     SliderModule,
     DataViewModule,
     MultiSelectModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,4 +12,6 @@ public interface OrderService {
     List<Order> getList();
     
     List<Order> getOrderByUser(String username);
+
+    String getLastOrderInfo();
 }

@@ -13,7 +13,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateProductRequest {
+public class    CreateProductRequest {
     
     @NotNull(message = "Tên sản phẩm rỗng")
     @NotEmpty(message="Tên sản phẩm rỗng")
@@ -43,6 +43,10 @@ public class CreateProductRequest {
     @NotEmpty(message = "Danh mục rỗng")
     @Schema(description = "ID của danh mục",example="1")
     private long categoryId;
+
+    private int discount;
+
+    private int flashSale;
 
     @NotNull(message="Ảnh sản phẩm rỗng")
     @Schema(description="Mảng Id của hình ảnh",example="[1,2,3]")

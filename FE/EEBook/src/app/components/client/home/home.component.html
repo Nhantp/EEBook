@@ -161,8 +161,9 @@
                 </h2>
                 <div style="margin: 18px">
                   <p class="special-price">
-                  <div style="font-size: 20px" class="price-font">{{product.price-product.price*product.discount/100 | number:'1.0-0'}} đ  <span *ngIf="product.flashSale==1" style="font-size: 20px" class="discount">{{'-'+product.discount+'%'}}</span></div>
-                  <span style="font-size: 20px" class="price-old">{{product.price| number:'1.0-0'}} đ </span>
+                  <div style="font-size: 20px" class="price-font">{{product.price-product.price*product.discount/100 | number:'1.0-0'}} đ
+                    <span *ngIf="product.flashSale==1" style="font-size: 20px" class="discount">{{'-'+product.discount+'%'}}</span></div>
+                  <span style="font-size: 20px" class="price-old">{{product.price | number:'1.0-0'}} đ </span>
                 </div>
               </div>
             </div>
@@ -226,7 +227,7 @@
       <div class="container-cat-1" style="display: flex; flex-wrap: wrap; justify-content: space-between; overflow-x: auto;">
         <div class="container-tab" style="display: flex;">
           <!-- Các sản phẩm trong hàng thứ nhất -->
-          <div class="ma-box-content-cat" style="padding-right: 100px" *ngFor="let product of listProductNewest; let i = index">
+          <div class="ma-box-content-cat" style="padding-right: 100px" *ngFor="let product of listProductPrice; let i = index">
             <div class="product clear" style="flex: 0 0 auto; margin-right: 10px;">
               <div class="product images-container">
                 <div class="featured__item">
@@ -254,14 +255,15 @@
                 </h2>
                 <div style="margin: 18px">
                   <p class="special-price">
-                  <div style="font-size: 20px" class="price-font">{{product.price-product.price*product.discount/100 | number:'1.0-0'}} đ   <span *ngIf="product.flashSale==1" style="font-size: 20px" class="discount">{{'-'+product.discount+'%'}}</span></div>
+                  <div style="font-size: 20px" class="price-font">{{product.price-product.price*product.discount/100 | number:'1.0-0'}} đ
+                  <span *ngIf="product.flashSale==1" style="font-size: 20px" class="discount">{{'-'+product.discount+'%'}}</span></div>
                   <span style="font-size: 20px" class="price-old">{{product.price | number:'1.0-0'}} đ </span>
                 </div>
               </div>
             </div>
           </div>
           <!-- Các sản phẩm trong hàng thứ hai -->
-          <div class="ma-box-content-cat" style="padding-right: 100px" *ngFor="let product of listProductNewest; let i = index" [ngStyle]="{'display': i > 5 ? 'block' : 'none'}">
+          <div class="ma-box-content-cat" style="padding-right: 100px" *ngFor="let product of listProductPrice; let i = index" [ngStyle]="{'display': i > 5 ? 'block' : 'none'}">
             <div class="product clear" style="flex: 0 0 auto; margin-right: 10px;">
               <div class="product images-container">
                 <div class="featured__item">

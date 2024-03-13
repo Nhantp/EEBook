@@ -4,3 +4,4 @@ export interface VnPayDTO {
   transactionId: string;
   totalPrice: string;
 }
+

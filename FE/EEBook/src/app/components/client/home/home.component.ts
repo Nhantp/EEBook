@@ -87,7 +87,10 @@ export class HomeComponent implements OnInit {
     }
   ] ;
 
-  constructor(private productSerive:ProductService,private cartService: CartService, private wishlistService: WishlistService,private messageService: MessageService){}
+  constructor(private productSerive:ProductService,
+              private cartService: CartService,
+              private wishlistService: WishlistService,
+              private messageService: MessageService){}
 
   ngOnInit(): void {
     this.getListProduct();
@@ -110,11 +113,18 @@ export class HomeComponent implements OnInit {
         console.log(err);
       }
     })
+    this.productSerive.getListProduct().subscribe({
+      next:res =>{
+        this.listProductPrice =res;
+      },error: err=>{
+        console.log(err);
+      }
+    })
   }
 
   addToCart(item: any){
     this.cartService.getItems();
-    this.showSuccess("Add To Cart Successfully!")
+    this.showSuccess("Thêm vào giỏ hàng thành công")
     this.cartService.addToCart(item,1);
   }
 

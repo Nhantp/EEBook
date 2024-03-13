@@ -3,6 +3,8 @@ import {VnpayService} from "../../../_service/vnpay.service";
 import {OrderService} from "../../../_service/order.service";
 import {GetDataService} from "../../../_service/get-data.service";
 import {CartService} from "../../../_service/cart.service";
+import Swal from "sweetalert2";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -19,7 +21,8 @@ export class VNPayComponent implements OnInit {
   // formattedOrderTotal: string | undefined;
   constructor(private vnpayService: VnpayService,
               private cartService: CartService,
-              private orderService: OrderService) {
+              private orderService: OrderService,
+              private router: Router) {
 
   }
 
@@ -39,6 +42,7 @@ export class VNPayComponent implements OnInit {
           window.location.href = response.vnpayUrl;
         } else {
         }
+
       },
       (error) => {
       }

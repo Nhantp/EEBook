@@ -9,6 +9,9 @@ import { OrderService } from 'src/app/_service/order.service';
 import { StorageService } from 'src/app/_service/storage.service';
 import {GetDataService} from "../../../_service/get-data.service";
 import {Router} from "@angular/router";
+import Swiper from "swiper";
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-checkout',
@@ -44,7 +47,7 @@ export class CheckoutComponent implements OnInit {
   constructor(public cartService: CartService,
               private orderService:OrderService,
               private storageService: StorageService,
-              private getData: GetDataService,
+              private messageService: MessageService,
               private router: Router){
 
   }
@@ -71,8 +74,16 @@ export class CheckoutComponent implements OnInit {
     if (vnpayRadio.checked) {
       this.router.navigate(['/vnpay']);
     } else {
-
+      Swal.fire({
+        icon: 'success',
+        title: 'Thanh toán thành công',
+        confirmButtonText: 'OK',
+        timer: 2000
+      }).then(() => {
+        this.router.navigate(['/']);
+      });
     }
+
 
     this.generateRandomNumberInfo()
     const {name,phoneNumber,email,country,city,district,ward,address} = this.orderForm;
@@ -96,5 +107,28 @@ export class CheckoutComponent implements OnInit {
     }
     this.orderInfo = result;
   }
+  showSuccess(text: string) {
+    this.messageService.add({severity:'success', summary: 'Success', detail: text});
+  }
+  showError(text: string) {
+    this.messageService.add({severity:'error', summary: 'Error', detail: text});
+  }
 
+  showWarn(text: string) {
+    this.messageService.add({severity:'warn', summary: 'Warn', detail: text});
+  }
+  ngAfterViewInit(): void {
+    const swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
 }
