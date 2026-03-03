@@ -90,7 +90,3 @@ Main entities:
 * Order
 * OrderDetail
 
-
-
-
-
