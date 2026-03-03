@@ -29,10 +29,10 @@ This project was built to practice and demonstrate skills in:
 
 ### 🔹 Frontend
 
-* Angular / React
-* TypeScript / JavaScript
-* Tailwind CSS / Bootstrap
-* Axios / HttpClient
+* Angular 
+* TypeScript 
+* Bootstrap
+* HttpClient
 
 ---
 
