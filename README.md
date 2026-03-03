@@ -90,62 +90,7 @@ Main entities:
 * Order
 * OrderDetail
 
-Relational mapping is implemented using JPA annotations.
 
----
 
-## 🚀 How to Run the Project
 
-### 🔹 Backend
 
-```bash
-git clone <your-repo-url>
-cd EEBook
-./gradlew bootRun
-```
-
-Backend runs at:
-
-```
-http://localhost:8080
-```
-
----
-
-### 🔹 Frontend
-
-```bash
-npm install
-npm start
-```
-
-Frontend runs at:
-
-```
-http://localhost:3000 (React)
-http://localhost:4200 (Angular)
-```
-
----
-
-## 📷 Screenshots
-
-(Add screenshots here)
-
----
-
-## 📈 Future Improvements
-
-* Payment integration
-* Docker deployment
-* CI/CD pipeline
-* Unit testing (JUnit + Mockito)
-
----
-
-## 👨‍💻 Author
-
-Your Name
-Email: [your-email@gmail.com](mailto:your-email@gmail.com)
-GitHub: [https://github.com/yourusername](https://github.com/yourusername)
-# EEBook
